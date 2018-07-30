@@ -24,7 +24,7 @@
 <div class="main">
   <h2>LINEメッセージ送信：入力画面</h2>
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
       <form method="POST" action="">
         <div class="form-group row">
           <label id="quoted" class="col-md-2 col-form-label col-form-label-lg form-quoted">送信履歴から引用</label>
@@ -50,15 +50,20 @@
       <div class="form-group row">
         <div class="col-md-6">
           <label class="col-form-label col-form-label-lg col-form-textarea">メッセージ入力</label>
-          <textarea class="form-control" rows="10">ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト</textarea>
+          <div class="border">
+            <h4>現在の検索条件</h4>
+            <div class="inner" id="">
+              ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト.
+            </div>
+          </div>
           <div class="text-number">
             <span class="txt">文字数</span>
             <span class="dot">:</span>
             <span class="number">000</span>
           </div>
           <div class="text-replace row">
-            <label class="col-md-3 col-form-label col-form-label-lg replace">置換ワード入力</label>
-            <div class="col-md-9 replace">
+            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 col-form-label col-form-label-lg replace">置換ワード入力</label>
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 replace">
               <input type="text" class="form-control form-control-sm" value="" placeholder="学校名">
             </div>
           </div>
@@ -66,8 +71,10 @@
         <div class="col-md-6">
           <label class="col-form-label col-form-label-lg col-form-textarea">プレビュー</label>
           <div class="border">
+            <h4>現在の検索条件</h4>
             <div class="chat-speech">
               <div class="chat-speech-content">
+                ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト
                 ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト ダブルジェイフォー　テスト
               </div>
             </div>
@@ -165,7 +172,7 @@
     </div>
     <nav aria-label="" class="set-pagination">
       <div class="row">
-        <div class="col-md-8 col-sm-8 col-lg-8">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
           <ul class="pagination">
             <li class="page-item disabled">
               <a class="page-link" href="#" tabindex="-1">戻る</a>
@@ -189,10 +196,10 @@
               <a class="page-link" href="#">次へ</a>
             </li>
           </ul>
-        </div>
-        <div class="col-md-4 col-sm-4 col-lg-4 btn-bottom">
-          <button type="button" class="btn btn-default">キャンセル</button>
-          <button type="button" class="btn btn-primary">次へ</button>
+          <form action="" method="POST" class="change-option">
+            <button type="button" class="btn btn-default">キャンセル</button>
+            <button type="button" class="btn btn-primary">次へ</button>
+          </form>
         </div>
       </div>
     </nav>
@@ -202,11 +209,6 @@
 <script src="js/vendor/jquery-2.1.4.min.js"></script>
 <script src="js/vendor/bootstrap.js"></script>
 <script src="js/main.js"></script>
-<script>
-  $('.main-box').on('scroll', function () {
-    $('.thead', this).css('transform', 'translateY(' + this.scrollTop + 'px)')
-  })
-</script>
 </body>
 </html>
 
