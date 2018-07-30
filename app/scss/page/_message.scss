@@ -1,0 +1,238 @@
+// Width & height are with respect to the outer bounding box
+@mixin triangle($direction, $color, $width, $height){
+  height: 0;
+  width: 0;
+  border-style: solid;
+
+  @if $direction == 'top' {
+    border-width: 0 $width/2 $height $width/2;
+    border-color: transparent transparent $color transparent;
+  } @else if $direction == 'right' {
+    border-width: $height/2 0 $height/2 $width;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == 'bottom' {
+    border-width: $height $width/2 0 $width/2;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == 'left' {
+    border-width: $height/2 $width $height/2 0;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == 'top-left' {
+    border-width: $height $width 0 0;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == 'top-right' {
+    border-width: 0 $width $height 0;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == 'bottom-left' {
+    border-width:$height 0 0 $width;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == 'bottom-right' {
+    border-width: 0 0 $height $width;
+    border-color: transparent transparent $color transparent;
+  }
+}
+
+@mixin triangle-change-color($direction, $color) {
+  @if $direction == 'top' {
+    //border-color: transparent transparent $color transparent;
+    border-bottom-color: $color;
+  } @else if $direction == 'right' {
+    //border-color: transparent transparent transparent $color;
+    border-left-color: $color;
+  } @else if $direction == 'bottom' {
+    //border-color: $color transparent transparent transparent;
+    border-top-color: $color;
+  } @else if $direction == 'left' {
+    //border-color: transparent $color transparent transparent;
+    border-right-color: $color;
+  } @else if $direction == 'top-left' {
+    //border-color: $color transparent transparent transparent;
+    border-top-color: $color;
+  } @else if $direction == 'top-right' {
+    //border-color: transparent $color transparent transparent;
+    border-right-color: $color;
+  } @else if $direction == 'bottom-left' {
+    //border-color: transparent transparent transparent $color;
+    border-left-color: $color;
+  } @else if $direction == 'bottom-right' {
+    //border-color: transparent transparent $color transparent;
+    border-bottom-color: $color;
+  }
+}
+
+@mixin triangle-change-size($direction, $width, $height){
+  @if $direction == 'top' {
+    border-width: 0 $width/2 $height $width/2;
+  } @else if $direction == 'right' {
+    border-width: $height/2 0 $height/2 $width;
+  } @else if $direction == 'bottom' {
+    border-width: $height $width/2 0 $width/2;
+  } @else if $direction == 'left' {
+    border-width: $height/2 $width $height/2 0;
+  } @else if $direction == 'top-left' {
+    border-width: $height $width 0 0;
+  } @else if $direction == 'top-right' {
+    border-width: 0 $width $height 0;
+  } @else if $direction == 'bottom-left' {
+    border-width:$height 0 0 $width;
+  } @else if $direction == 'bottom-right' {
+    border-width: 0 0 $height $width;
+  }
+}
+
+$px : 1px;
+$chat-speech-pic-size:  50*$px;
+$color-line: #d2d6de;
+$color-bg: #999;
+$color-white: #fff;
+$fs-chat-text: 24*$px;
+
+body {
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+.main {
+  .form-group {
+    label {
+      padding: 5px 0 0 20px;
+      font-weight: normal;
+    }
+    .col-form-textarea, .text-number {
+      padding-left: 5px;
+    }
+    button {
+      width: 120px;
+    }
+    input, select, textarea {
+      border-radius: 0;
+      box-shadow: none;
+      border-color: #d2d6de;
+    }
+    .form-quoted {
+      margin-top: 15px;
+    }
+    .text-number {
+      background-color: #f4f4f4;
+      color: #444;
+      border-color: #ddd;
+      .dot {
+        padding: 0 20px 0 20px;
+      }
+    }
+    .text-replace {
+      .replace {
+        margin-top: 2px;
+      }
+    }
+  }
+  .table-content {
+    p {
+      padding-left: 5px;
+    }
+  }
+  .border {
+    border: 1px solid #d2d6de;
+    height: 213px;
+  }
+  .chat-speech {
+    position: relative;
+    box-sizing: border-box;
+    max-width: 460*$px;
+    padding: 20*$px;
+    border-radius: 6*$px;
+    background: $color-white;
+    margin: 20px 0 0 20px;
+    border: 1px solid $color-line;
+
+    &:after {
+      position: absolute;
+      top: 10*$px;
+      left: -12*$px;
+      content: "";
+      @include triangle('left', $color-line, 12*$px, 22*$px);
+    }
+
+    &:before {
+      position: absolute;
+      top: 10*$px;
+      left: -11*$px;
+      content: "";
+      @include triangle('left', $color-white, 12*$px, 22*$px);
+      z-index:10;
+    }
+
+    .chat-speech-content {
+      box-sizing: content-box;
+      width: auto;
+    }
+
+  }
+  .table-content {
+    margin-top: 50px;
+    .main-box {
+      margin-top: 10px;
+      height: 300px;
+      overflow: auto;
+    }
+    table.console-table {
+      background-color: #ffffff;
+    }
+    .table-striped>tbody>tr:nth-of-type(odd) {
+      background-color: #f9f9f9;
+    }
+    table.console-table th {
+      background-color: #f0f0f0;
+      border: solid 1px #dddddd!important;
+      padding: 5px 10px!important;
+      color: #3c8dbc;
+      text-align: center;
+      vertical-align: middle!important;
+      font-size: 12px;
+      font-weight: normal;
+    }
+    table.console-table td {
+      border: solid 1px #f4f4f4 !important;
+      padding: 5px 10px!important;
+      vertical-align: middle!important;
+      font-size: 12px;
+    }
+  }
+  .set-pagination {
+    .pagination {
+      font-size: 14px;
+      &>li {
+        & > a, & > span {
+          color: #333;
+        }
+      }
+      .active a {
+        color: #fff;
+      }
+    }
+    .btn-bottom {
+      margin-top: 20px;
+      text-align: right;
+      button {
+        width: 30%;
+        margin: 0 15px;
+        border-radius: 5px;
+        height: 40px;
+      }
+      button.btn-default {
+        background-color: #f4f4f4;
+        color: #444;
+        border-color: #ddd;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .btn-bottom {
+    text-align: center !important;
+  }
+}
+
+
+
+
+
