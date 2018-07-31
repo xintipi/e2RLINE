@@ -15,12 +15,7 @@
   .close-up {
     button {
       float: right;
-      background-color: #f4f4f4;
-      color: #444;
-      border-color: #ddd;
-      width: 114px;
-      border-radius: 5px;
-      height: 40px;
+      @include btn-default(#f4f4f4, #444, #ddd)
     }
   }
 }

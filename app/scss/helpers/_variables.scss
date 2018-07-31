@@ -51,10 +51,14 @@ $info-tablet-vertical: "only screen and (max-width : 900px)";
 $info-phone: "only screen and (max-width : 767px)";
 $info-phone-4: "only screen and (max-width : 320px)";
 
-//
+// using for bubble
 $px : 1px;
 $chat-speech-pic-size:  50*$px;
 $color-line: #d2d6de;
 $color-bg: #999;
 $color-white: #fff;
 $fs-chat-text: 24*$px;
+
+// using for normal
+$color-bg-normal: #f0f0f0;
+$color-bd-normal: #d2d6de;

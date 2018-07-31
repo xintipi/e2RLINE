@@ -598,3 +598,13 @@
     border-width: 0 0 $height $width;
   }
 }
+
+// style for button
+@mixin btn-default ($color-background, $color, $color-border) {
+  background-color: $color-background;
+  color: $color;
+  border-color: $color-border;
+  width: 114px;
+  border-radius: 5px;
+  height: 40px;
+}

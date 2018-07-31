@@ -5662,8 +5662,6 @@ body {
       overflow-y: scroll; }
     body .main .table-content table.console-table {
       background-color: #ffffff; }
-    body .main .table-content .table-striped > tbody > tr:nth-of-type(odd) {
-      background-color: #f9f9f9; }
     body .main .table-content table.console-table th {
       background-color: #f0f0f0;
       border: solid 1px #dddddd !important;
@@ -5689,15 +5687,18 @@ body {
   body .main .set-pagination .btn-option {
     margin: 20px 0;
     float: right; }
-    body .main .set-pagination .btn-option button {
+    body .main .set-pagination .btn-option button.btn-primary {
       width: 114px;
-      margin: 0 15px;
       border-radius: 5px;
       height: 40px; }
     body .main .set-pagination .btn-option button.btn-default {
+      margin-right: 20px;
       background-color: #f4f4f4;
       color: #444;
-      border-color: #ddd; }
+      border-color: #ddd;
+      width: 114px;
+      border-radius: 5px;
+      height: 40px; }
 
 @media (max-width: 767px) {
   table tr th.tac:nth-child(4) {
@@ -5707,8 +5708,7 @@ body {
   margin-top: 5px; }
 
 .main .management-name {
-  margin-top: 30px;
-  margin-bottom: 30px; }
+  margin: 30px 0; }
   .main .management-name input {
     background-color: #f0f0f0; }
 
