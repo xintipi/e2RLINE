@@ -148,7 +148,9 @@ body {
     .inner {
       padding: 5px 10px;
       overflow: auto;
-      height: 65px;
+      .text-school {
+        margin-top: 30px;
+      }
     }
   }
   .chat-speech {
@@ -190,7 +192,7 @@ body {
     .main-box {
       margin-top: 10px;
       height: 300px;
-      overflow: auto;
+      overflow-y: scroll;
     }
     table.console-table {
       background-color: #ffffff;
@@ -248,8 +250,8 @@ body {
 }
 
 @media (max-width: 767px) {
-  .btn-bottom {
-    text-align: center !important;
+  table tr th.tac:nth-child(4) {
+    width: 50%;
   }
 }
 
