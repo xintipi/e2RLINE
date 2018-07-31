@@ -5585,14 +5585,14 @@ body {
   body .main .form-group label {
     padding: 5px 0 0 20px;
     font-weight: normal; }
-  body .main .form-group .col-form-textarea, body .main .form-group .text-number {
-    padding-left: 5px; }
   body .main .form-group button {
     width: 120px; }
   body .main .form-group input, body .main .form-group select, body .main .form-group textarea {
     border-radius: 0;
     box-shadow: none;
     border-color: #d2d6de; }
+  body .main .form-group .col-form-textarea, body .main .form-group .text-number {
+    padding-left: 5px; }
   body .main .form-group .form-quoted {
     margin-top: 15px; }
   body .main .form-group .text-number {
@@ -5686,15 +5686,15 @@ body {
       color: #333; }
     body .main .set-pagination .pagination .active a {
       color: #fff; }
-  body .main .set-pagination .change-option {
+  body .main .set-pagination .btn-option {
     margin: 20px 0;
     float: right; }
-    body .main .set-pagination .change-option button {
+    body .main .set-pagination .btn-option button {
       width: 114px;
       margin: 0 15px;
       border-radius: 5px;
       height: 40px; }
-    body .main .set-pagination .change-option button.btn-default {
+    body .main .set-pagination .btn-option button.btn-default {
       background-color: #f4f4f4;
       color: #444;
       border-color: #ddd; }
@@ -5702,6 +5702,9 @@ body {
 @media (max-width: 767px) {
   table tr th.tac:nth-child(4) {
     width: 50%; } }
+
+.main .management label {
+  margin-top: 5px; }
 
 .main .management-name {
   margin-top: 30px;
@@ -6836,7 +6839,7 @@ body {
   margin-top: 100px; }
 
 .main .management-name label {
-  padding-top: 0; }
+  padding-top: 0 !important; }
 
 .main .border-none-label {
   position: relative;
