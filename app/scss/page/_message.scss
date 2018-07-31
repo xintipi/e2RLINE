@@ -111,9 +111,6 @@ body {
       table.console-table {
         background-color: #ffffff;
       }
-      .table-striped>tbody>tr:nth-of-type(odd) {
-        background-color: #f9f9f9;
-      }
       table.console-table th {
         background-color: #f0f0f0;
         border: solid 1px #dddddd!important;
@@ -148,16 +145,14 @@ body {
       .btn-option {
         margin: 20px 0;
         float: right;
-        button {
+        button.btn-primary {
           width: 114px;
-          margin: 0 15px;
           border-radius: 5px;
           height: 40px;
         }
         button.btn-default {
-          background-color: #f4f4f4;
-          color: #444;
-          border-color: #ddd;
+          margin-right: 20px;
+          @include btn-default(#f4f4f4, #444, #ddd)
         }
       }
     }
