@@ -518,3 +518,83 @@
   display: -webkit-flex;
   display: flex;
 }
+
+@mixin triangle($direction, $color, $width, $height){
+  height: 0;
+  width: 0;
+  border-style: solid;
+
+  @if $direction == 'top' {
+    border-width: 0 $width/2 $height $width/2;
+    border-color: transparent transparent $color transparent;
+  } @else if $direction == 'right' {
+    border-width: $height/2 0 $height/2 $width;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == 'bottom' {
+    border-width: $height $width/2 0 $width/2;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == 'left' {
+    border-width: $height/2 $width $height/2 0;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == 'top-left' {
+    border-width: $height $width 0 0;
+    border-color: $color transparent transparent transparent;
+  } @else if $direction == 'top-right' {
+    border-width: 0 $width $height 0;
+    border-color: transparent $color transparent transparent;
+  } @else if $direction == 'bottom-left' {
+    border-width:$height 0 0 $width;
+    border-color: transparent transparent transparent $color;
+  } @else if $direction == 'bottom-right' {
+    border-width: 0 0 $height $width;
+    border-color: transparent transparent $color transparent;
+  }
+}
+
+@mixin triangle-change-color($direction, $color) {
+  @if $direction == 'top' {
+    //border-color: transparent transparent $color transparent;
+    border-bottom-color: $color;
+  } @else if $direction == 'right' {
+    //border-color: transparent transparent transparent $color;
+    border-left-color: $color;
+  } @else if $direction == 'bottom' {
+    //border-color: $color transparent transparent transparent;
+    border-top-color: $color;
+  } @else if $direction == 'left' {
+    //border-color: transparent $color transparent transparent;
+    border-right-color: $color;
+  } @else if $direction == 'top-left' {
+    //border-color: $color transparent transparent transparent;
+    border-top-color: $color;
+  } @else if $direction == 'top-right' {
+    //border-color: transparent $color transparent transparent;
+    border-right-color: $color;
+  } @else if $direction == 'bottom-left' {
+    //border-color: transparent transparent transparent $color;
+    border-left-color: $color;
+  } @else if $direction == 'bottom-right' {
+    //border-color: transparent transparent $color transparent;
+    border-bottom-color: $color;
+  }
+}
+
+@mixin triangle-change-size($direction, $width, $height){
+  @if $direction == 'top' {
+    border-width: 0 $width/2 $height $width/2;
+  } @else if $direction == 'right' {
+    border-width: $height/2 0 $height/2 $width;
+  } @else if $direction == 'bottom' {
+    border-width: $height $width/2 0 $width/2;
+  } @else if $direction == 'left' {
+    border-width: $height/2 $width $height/2 0;
+  } @else if $direction == 'top-left' {
+    border-width: $height $width 0 0;
+  } @else if $direction == 'top-right' {
+    border-width: 0 $width $height 0;
+  } @else if $direction == 'bottom-left' {
+    border-width:$height 0 0 $width;
+  } @else if $direction == 'bottom-right' {
+    border-width: 0 0 $height $width;
+  }
+}
