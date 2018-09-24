@@ -48,16 +48,10 @@
         </div>
       </div>
       <div class="form-group row">
-        <div class="col-md-6">
-          <div class="border">
+        <div class="col-md-6" style="margin-top: 1px">
+          <div class="left-border">
             <h4>メッセージ入力</h4>
-            <div class="inner" id="">
-              <p>@##name@さん</p>
-              <div class="text-school">
-                <p>こんにちは。</p>
-                <p>@##school@</p>
-              </div>
-            </div>
+            <textarea class="inner"></textarea>
           </div>
           <div class="text-number">
             <span class="txt">文字数</span>
@@ -66,22 +60,23 @@
           </div>
           <div class="text-replace row">
             <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 col-form-label col-form-label-lg replace">置換ワード入力</label>
-            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 replace">
-              <input type="text" class="form-control form-control-sm" value="" placeholder="学校名">
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 replace form-quoted">
+              <select class="form-control word-input">
+                <option value=""></option>
+                <option value="@##user_id@">@##user_id@</option>
+                <option value="@##lastname@">@##lastname@</option>
+                <option value="@##name@">@##name@</option>
+                <option value="@##school@">@##school@</option>
+              </select>
             </div>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="border">
+          <div class="right-border">
             <h4>プレビュー</h4>
             <div class="chat-speech">
               <div class="chat-speech-content">
-                <div class="inner">
-                  <p>@##name@さん</p>
-                  <div class="text-school">
-                    <p>こんにちは。</p>
-                  </div>
-                </div>
+                <div class="inner preview-message"></div>
               </div>
             </div>
           </div>
@@ -265,7 +260,7 @@
 
 <script src="js/vendor/jquery-2.1.4.min.js"></script>
 <script src="js/vendor/bootstrap.js"></script>
-<script src="js/main.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
 
