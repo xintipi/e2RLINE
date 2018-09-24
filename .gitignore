@@ -7,3 +7,4 @@ package-lock.json
 package.json
 yarn.lock
 webpack.config.js
+misc.xml
