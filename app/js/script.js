@@ -116,6 +116,8 @@ function () {
   }, {
     key: "onUpdateCount",
     value: function onUpdateCount() {
+      var _this = this;
+
       this.textNumber = $(".text-number .number");
       this.previewMessage = $(".preview-message");
       this.countWords = $("textarea");
@@ -126,16 +128,23 @@ function () {
 
         this.previewMessage.html("<p>".concat($(this).val(), "</p>")); //preview string on div preview
 
-        this.onAddMessageWhenEnter();
-      } else {
-        // inform when message exceed 2000 words
-        alert("The number of characters you enter exceeds 2000 words");
+        var text = this.countWords.val();
+        var match = /\r|\n/.exec(text);
+
+        if (match) {
+          // check new line when compose message
+          var arrayText = this.countWords.val().split("\n");
+          $(".preview-message p:first").remove();
+          arrayText.forEach(function (value, index) {
+            _this.previewMessage.append("<p>".concat(value, "</p>"));
+          });
+        }
       }
     }
   }, {
     key: "onChangeInput",
     value: function onChangeInput() {
-      var _this = this;
+      var _this2 = this;
 
       this.sumSelect = $(".word-input").toArray();
       this.countWords = $("textarea");
@@ -145,8 +154,8 @@ function () {
       this.val = "";
       $.each(this.sumSelect, function (index, value) {
         if ($(value).val() !== '') {
-          _this.enough = true;
-          _this.val = $(value).val();
+          _this2.enough = true;
+          _this2.val = $(value).val();
         }
       });
 
@@ -158,34 +167,23 @@ function () {
         var after = text.substring(end, text.length);
         this.countWords.val(before + this.val + after);
         this.previewMessage.html("<p>".concat(before + this.val + after, "</p>"));
-        this.onAddMessageWhenEnter();
+        var match = /\r|\n/.exec(text);
+
+        if (match) {
+          // check new line when compose message
+          var arrayText = this.countWords.val().split("\n");
+          $(".preview-message p:first").remove();
+          arrayText.forEach(function (value, index) {
+            _this2.previewMessage.append("<p>".concat(value, "</p>"));
+          });
+        }
+
         this.countWords[0].selectionStart = this.countWords[0].selectionEnd = start + this.val.length;
         this.countWords.focus();
 
         if (before.length + this.val.length + after.length <= 2000) {
           this.textNumber.text(before.length + this.val.length + after.length);
-        } else {
-          alert("The number of characters you enter exceeds 2000 words");
         }
-      }
-    }
-  }, {
-    key: "onAddMessageWhenEnter",
-    value: function onAddMessageWhenEnter() {
-      var _this2 = this;
-
-      this.countWords = $("textarea");
-      this.previewMessage = $(".preview-message");
-      var text = this.countWords.val();
-      var match = /\r|\n/.exec(text);
-
-      if (match) {
-        // check new line when compose message
-        var arrayText = this.countWords.val().split("\n");
-        $(".preview-message p:first").remove();
-        arrayText.forEach(function (value, index) {
-          _this2.previewMessage.append("<p>".concat(value, "</p>"));
-        });
       }
     }
   }]);

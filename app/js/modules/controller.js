@@ -20,11 +20,17 @@ class Controller {
 
     if (this.numberWord <= 2000) {
       this.textNumber.text(this.numberWord) //add number words
-      this.previewMessage.html(`<p>${$(this).val()}</p>`)//preview string on div preview
-      this.onAddMessageWhenEnter()
-    } else {
-      // inform when message exceed 2000 words
-      alert("The number of characters you enter exceeds 2000 words")
+      this.previewMessage.html(`<p>${$(this).val()}</p>`) //preview string on div preview
+      let text = this.countWords.val()
+      let match = /\r|\n/.exec(text);
+      if (match) {
+        // check new line when compose message
+        let arrayText = this.countWords.val().split("\n")
+        $(".preview-message p:first").remove()
+        arrayText.forEach((value, index) => {
+          this.previewMessage.append(`<p>${value}</p>`)
+        })
+      }
     }
   }
 
@@ -53,32 +59,24 @@ class Controller {
       let after  = text.substring(end, text.length)
 
       this.countWords.val(before + this.val + after)
+
       this.previewMessage.html(`<p>${before + this.val + after}</p>`)
-      this.onAddMessageWhenEnter()
+      let match = /\r|\n/.exec(text);
+      if (match) {
+        // check new line when compose message
+        let arrayText = this.countWords.val().split("\n")
+        $(".preview-message p:first").remove()
+        arrayText.forEach((value, index) => {
+          this.previewMessage.append(`<p>${value}</p>`)
+        })
+      }
 
       this.countWords[0].selectionStart = this.countWords[0].selectionEnd = start + this.val.length
       this.countWords.focus()
 
       if (before.length + this.val.length + after.length <= 2000){
         this.textNumber.text(before.length + this.val.length + after.length)
-      } else {
-        alert("The number of characters you enter exceeds 2000 words")
       }
-    }
-  }
-
-  onAddMessageWhenEnter() {
-    this.countWords = $("textarea")
-    this.previewMessage = $(".preview-message")
-    let text = this.countWords.val()
-    let match = /\r|\n/.exec(text);
-    if (match) {
-      // check new line when compose message
-      let arrayText = this.countWords.val().split("\n")
-      $(".preview-message p:first").remove()
-      arrayText.forEach((value, index) => {
-        this.previewMessage.append(`<p>${value}</p>`)
-      })
     }
   }
 
