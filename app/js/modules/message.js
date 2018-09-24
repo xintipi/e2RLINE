@@ -1,13 +1,17 @@
-class Controller {
+class Message {
 
-  constructor(){
-    this.countWords = $("textarea")
-    this.addInput = $(".word-input")
+  constructor() {
     this.numberWord = 0
     this.sumSelect = ""
   }
 
-  onBindEvent () {
+  onBindEvent() {
+    this.textNumber = $(".text-number .number")
+    this.previewMessage = $(".preview-message")
+    this.countWords = $("textarea")
+    this.addInput = $(".word-input")
+    this.textNumber = $(".text-number .number")
+
     this.countWords.keyup(this.onUpdateCount)
     this.addInput.change(this.onChangeInput)
   }
@@ -22,7 +26,7 @@ class Controller {
       this.textNumber.text(this.numberWord) //add number words
       this.previewMessage.html(`<p>${$(this).val()}</p>`) //preview string on div preview
       let text = this.countWords.val()
-      let match = /\r|\n/.exec(text);
+      let match = /\r|\n/.exec(text)
       if (match) {
         // check new line when compose message
         let arrayText = this.countWords.val().split("\n")
@@ -35,8 +39,7 @@ class Controller {
   }
 
   onChangeInput() {
-
-    this.sumSelect = $(".word-input").toArray();
+    this.sumSelect = $(".word-input").toArray()
     this.countWords = $("textarea")
     this.previewMessage = $(".preview-message")
     this.textNumber = $(".text-number .number")
@@ -48,20 +51,20 @@ class Controller {
         this.enough = true
         this.val = $(value).val()
       }
-    });
+    })
 
-    if (this.enough){
+    if (this.enough) {
 
       let start = this.countWords.prop("selectionStart")
       let end = this.countWords.prop("selectionEnd")
       let text = this.countWords.val()
       let before = text.substring(0, start)
-      let after  = text.substring(end, text.length)
+      let after = text.substring(end, text.length)
 
       this.countWords.val(before + this.val + after)
 
       this.previewMessage.html(`<p>${before + this.val + after}</p>`)
-      let match = /\r|\n/.exec(text);
+      let match = /\r|\n/.exec(text)
       if (match) {
         // check new line when compose message
         let arrayText = this.countWords.val().split("\n")
@@ -74,7 +77,7 @@ class Controller {
       this.countWords[0].selectionStart = this.countWords[0].selectionEnd = start + this.val.length
       this.countWords.focus()
 
-      if (before.length + this.val.length + after.length <= 2000){
+      if (before.length + this.val.length + after.length <= 2000) {
         this.textNumber.text(before.length + this.val.length + after.length)
       }
     }
@@ -82,4 +85,4 @@ class Controller {
 
 }
 
-export default Controller
+export default Message

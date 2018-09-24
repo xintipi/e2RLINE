@@ -1,6 +1,6 @@
 
-import Controller from './modules/controller'
+import Message from './modules/message'
 
-let controller = new Controller()
+let message = new Message()
 
-controller.onBindEvent()
+message.onBindEvent()

@@ -70,12 +70,12 @@
 "use strict";
 
 
-var _controller = _interopRequireDefault(__webpack_require__(1));
+var _message = _interopRequireDefault(__webpack_require__(1));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var controller = new _controller.default();
-controller.onBindEvent();
+var message = new _message.default();
+message.onBindEvent();
 
 /***/ }),
 /* 1 */
@@ -95,21 +95,24 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Controller =
+var Message =
 /*#__PURE__*/
 function () {
-  function Controller() {
-    _classCallCheck(this, Controller);
+  function Message() {
+    _classCallCheck(this, Message);
 
-    this.countWords = $("textarea");
-    this.addInput = $(".word-input");
     this.numberWord = 0;
     this.sumSelect = "";
   }
 
-  _createClass(Controller, [{
+  _createClass(Message, [{
     key: "onBindEvent",
     value: function onBindEvent() {
+      this.textNumber = $(".text-number .number");
+      this.previewMessage = $(".preview-message");
+      this.countWords = $("textarea");
+      this.addInput = $(".word-input");
+      this.textNumber = $(".text-number .number");
       this.countWords.keyup(this.onUpdateCount);
       this.addInput.change(this.onChangeInput);
     }
@@ -188,10 +191,10 @@ function () {
     }
   }]);
 
-  return Controller;
+  return Message;
 }();
 
-var _default = Controller;
+var _default = Message;
 exports.default = _default;
 
 /***/ })
