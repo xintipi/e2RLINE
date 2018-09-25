@@ -74,8 +74,10 @@ var _message = _interopRequireDefault(__webpack_require__(1));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/*
+* Import module to use
+*/
 var message = new _message.default();
-message.onBindEvent();
 
 /***/ }),
 /* 1 */
@@ -95,104 +97,104 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+/*
+* Create module Message that using for message.html
+*/
 var Message =
 /*#__PURE__*/
 function () {
+  /* Create constructor */
   function Message() {
     _classCallCheck(this, Message);
 
+    /* Declare variable */
     this.numberWord = 0;
     this.sumSelect = "";
+    window.textNumber = $(".text-number .number");
+    window.previewMessage = $(".preview-message");
+    window.countWords = $("textarea");
+    window.addInput = $(".word-input");
+    window.textNumber = $(".text-number .number");
+    /* Run function onBindEvent */
+
+    this.onBindEvent();
   }
 
   _createClass(Message, [{
     key: "onBindEvent",
     value: function onBindEvent() {
-      this.textNumber = $(".text-number .number");
-      this.previewMessage = $(".preview-message");
-      this.countWords = $("textarea");
-      this.addInput = $(".word-input");
-      this.textNumber = $(".text-number .number");
-      this.countWords.keyup(this.onUpdateCount);
-      this.addInput.change(this.onChangeInput);
+      window.countWords.on("keyup", this.onUpdateCount); // Keyup event which using for count words in string
+
+      window.addInput.on("change", this.onChangeInput); // onChange event which using for select word input option
     }
   }, {
     key: "onUpdateCount",
     value: function onUpdateCount() {
-      var _this = this;
-
-      this.textNumber = $(".text-number .number");
-      this.previewMessage = $(".preview-message");
-      this.countWords = $("textarea");
       this.numberWord = $(this).val().length;
 
       if (this.numberWord <= 2000) {
-        this.textNumber.text(this.numberWord); //add number words
+        window.textNumber.text(this.numberWord); // Add number words
 
-        this.previewMessage.html("<p>".concat($(this).val(), "</p>")); //preview string on div preview
+        window.previewMessage.html("<p>".concat($(this).val(), "</p>")); // Preview string on div preview
 
-        var text = this.countWords.val();
-        var match = /\r|\n/.exec(text);
-
-        if (match) {
-          // check new line when compose message
-          var arrayText = this.countWords.val().split("\n");
-          $(".preview-message p:first").remove();
-          arrayText.forEach(function (value, index) {
-            _this.previewMessage.append("<p>".concat(value, "</p>"));
-          });
-        }
+        Message.onAddMessageWithNewline();
       }
     }
   }, {
     key: "onChangeInput",
     value: function onChangeInput() {
-      var _this2 = this;
+      var _this = this;
 
       this.sumSelect = $(".word-input").toArray();
-      this.countWords = $("textarea");
-      this.previewMessage = $(".preview-message");
-      this.textNumber = $(".text-number .number");
       this.enough = false;
       this.val = "";
       $.each(this.sumSelect, function (index, value) {
         if ($(value).val() !== '') {
-          _this2.enough = true;
-          _this2.val = $(value).val();
+          _this.enough = true;
+          _this.val = $(value).val();
         }
       });
 
       if (this.enough) {
-        var start = this.countWords.prop("selectionStart");
-        var end = this.countWords.prop("selectionEnd");
-        var text = this.countWords.val();
+        var start = window.countWords.prop("selectionStart");
+        var end = window.countWords.prop("selectionEnd");
+        var text = window.countWords.val();
         var before = text.substring(0, start);
         var after = text.substring(end, text.length);
-        this.countWords.val(before + this.val + after);
-        this.previewMessage.html("<p>".concat(before + this.val + after, "</p>"));
-        var match = /\r|\n/.exec(text);
-
-        if (match) {
-          // check new line when compose message
-          var arrayText = this.countWords.val().split("\n");
-          $(".preview-message p:first").remove();
-          arrayText.forEach(function (value, index) {
-            _this2.previewMessage.append("<p>".concat(value, "</p>"));
-          });
-        }
-
-        this.countWords[0].selectionStart = this.countWords[0].selectionEnd = start + this.val.length;
-        this.countWords.focus();
+        window.countWords.val(before + this.val + after);
+        window.previewMessage.html("<p>".concat(before + this.val + after, "</p>"));
+        Message.onAddMessageWithNewline();
+        window.countWords[0].selectionStart = window.countWords[0].selectionEnd = start + this.val.length;
+        window.countWords.focus();
 
         if (before.length + this.val.length + after.length <= 2000) {
-          this.textNumber.text(before.length + this.val.length + after.length);
+          window.textNumber.text(before.length + this.val.length + after.length);
         }
+      }
+    }
+  }], [{
+    key: "onAddMessageWithNewline",
+    value: function onAddMessageWithNewline() {
+      var text = window.countWords.val();
+      var match = /\r|\n/.exec(text);
+
+      if (match) {
+        // Check if exist new line when compose message
+        var arrayText = window.countWords.val().split("\n");
+        $(".preview-message p:first").remove();
+        arrayText.forEach(function (value, index) {
+          window.previewMessage.append("<p>".concat(value, "</p>"));
+        });
       }
     }
   }]);
 
   return Message;
 }();
+/*
+* Export module Message that using for message.html
+*/
+
 
 var _default = Message;
 exports.default = _default;
