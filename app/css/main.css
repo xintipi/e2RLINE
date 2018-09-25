@@ -5618,6 +5618,8 @@ body {
     height: 235px;
     max-height: 235px;
     outline: none; }
+  body .main .left-border .none-background-inner {
+    background: none; }
   body .main .right-border {
     border: 1px solid #d2d6de;
     width: 100%;
