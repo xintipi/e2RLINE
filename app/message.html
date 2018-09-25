@@ -1,0 +1,266 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang=""> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Content-Language" content="en-us"/>
+  <title>e2RLINE Message</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body id="wrapper">
+
+<div class="main">
+  <h2>LINEメッセージ送信：入力画面</h2>
+  <div class="row">
+    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
+      <form method="POST" action="">
+        <div class="form-group row">
+          <label id="quoted" class="col-md-2 col-form-label col-form-label-lg form-quoted">送信履歴から引用</label>
+          <div class="col-md-6 form-quoted">
+            <select class="form-control">
+              <option value="0">登録情報</option>
+              <option value="1">基本情報</option>
+              <option value="2">登録情報</option>
+              <option value="3">基本情報</option>
+            </select>
+          </div>
+          <div class="col-md-4 form-quoted">
+            <button type="button" class="btn btn-primary downloadcsv">引用</button>
+          </div>
+        </div>
+      </form>
+      <div class="form-group row">
+        <label class="col-md-1 col-form-label col-form-label-lg">管理名</label>
+        <div class="col-md-11">
+          <input type="text" class="form-control form-control-sm" id="colFormLabelSm" value="">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-6" style="margin-top: 1px">
+          <div class="left-border">
+            <h4>メッセージ入力</h4>
+            <textarea class="inner none-background-inner"></textarea>
+          </div>
+          <div class="text-number">
+            <span class="txt">文字数</span>
+            <span class="dot">:</span>
+            <span class="number">000</span>
+          </div>
+          <div class="text-replace row">
+            <label class="col-md-4 col-lg-4 col-sm-4 col-xs-4 col-form-label col-form-label-lg replace">置換ワード入力</label>
+            <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 replace form-quoted">
+              <select class="form-control word-input">
+                <option value=""></option>
+                <option value="@##user_id@">@##user_id@</option>
+                <option value="@##lastname@">@##lastname@</option>
+                <option value="@##name@">@##name@</option>
+                <option value="@##school@">@##school@</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="right-border">
+            <h4>プレビュー</h4>
+            <div class="chat-speech">
+              <div class="chat-speech-content">
+                <div class="inner preview-message"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="table-content">
+    <p>送信済学生を除く</p>
+    <div class="main-box">
+      <table class="table table-striped console-table">
+        <tbody>
+        <tr class="thead">
+          <th>No</th>
+          <th>除外</th>
+          <th>送信日</th>
+          <th class="tac">管理名</th>
+          <th style="width:260px;"></th>
+        </tr>
+
+        <tr class="seminar">
+          <td>1</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>2</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>3</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>4</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>5</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+
+        <tr class="seminar">
+          <td>6</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>7</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>8</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>9</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>10</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+
+        <tr class="seminar">
+          <td>11</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>12</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>13</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>14</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        <tr class="seminar">
+          <td>15</td>
+          <td><input type="checkbox"></td>
+          <td>10/20/2018</td>
+          <td>会社説明会プロモーション</td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <nav aria-label="" class="set-pagination">
+      <div class="row">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">戻る</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">4</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">5</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">6</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">7</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">8</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">9</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">10</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">次へ</a>
+            </li>
+          </ul>
+          <div class="btn-option">
+            <button type="button" class="btn btn-default">キャンセル</button>
+            <a href="confirmation.html"><button type="button" class="btn btn-primary">次へ</button></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script src="js/vendor/jquery-3.3.1.min.js"></script>
+<script src="js/vendor/bootstrap.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
+
