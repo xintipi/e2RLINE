@@ -5725,8 +5725,38 @@ body {
   .main .management-name input {
     background-color: #f0f0f0; }
 
-.main .border-left {
+.main .left-border h4 {
+  background-color: #3c8dbc;
+  margin: 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #ffffff; }
+
+.main .left-border .inner {
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 100%;
+  height: 235px;
+  max-height: 235px;
+  border: 1px solid #d2d6de;
   background-color: #f0f0f0; }
+
+.main .right-border {
+  border: 1px solid #d2d6de;
+  width: 100%;
+  height: 260px;
+  overflow: scroll; }
+  .main .right-border h4 {
+    background-color: #3c8dbc;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #ffffff; }
+  .main .right-border .inner {
+    padding: 5px 10px;
+    overflow: auto; }
+    .main .right-border .inner .text-school {
+      margin-top: 30px; }
 
 .main .cumulative {
   border: 1px solid #d2d6de;
@@ -6854,9 +6884,10 @@ body {
 .main .management-name label {
   padding-top: 0 !important; }
 
-.main .border-none-label {
-  position: relative; }
-  .main .border-none-label .inner-text {
+.main .left-border-none-lable .inner {
+  height: 260px !important;
+  max-height: 260px !important; }
+  .main .left-border-none-lable .inner p {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -6866,6 +6897,23 @@ body {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
+
+.main .right-border {
+  border: 1px solid #d2d6de;
+  width: 100%;
+  height: 260px;
+  overflow: scroll; }
+  .main .right-border h4 {
+    background-color: #3c8dbc;
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #ffffff; }
+  .main .right-border .inner {
+    padding: 5px 10px;
+    overflow: auto; }
+    .main .right-border .inner .text-school {
+      margin-top: 30px; }
 
 .main .close-up button {
   float: right;
